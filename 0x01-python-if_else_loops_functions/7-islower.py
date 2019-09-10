@@ -2,4 +2,4 @@
 def islower(c):
     if c is '':
         return(ord(c))
-    return(c.islower)
+    return(c.islower())
