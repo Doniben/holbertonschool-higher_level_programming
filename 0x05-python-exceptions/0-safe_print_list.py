@@ -3,14 +3,14 @@
 
 def safe_print_list(my_list=[], x=0):
 
-    i = 0
+    element = 0
 
     for i in range(x):
         try:
             print("{}".format(my_list[i]), end='')
-            i += 1
+            element += 1
         except IndexError:
             pass
             return (i)
     print()
-    return(i)
+    return(element)
