@@ -11,6 +11,6 @@ def safe_print_list(my_list=[], x=0):
             element += 1
         except IndexError:
             pass
-            return (i)
+
     print()
     return(element)
