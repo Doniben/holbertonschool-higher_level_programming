@@ -54,7 +54,7 @@ class Rectangle:
         if self.width == 0 or self.__height == 0:
             return matrix
         for i in range(self.__height):
-            matrix = matrix + str(self) * self.__width
+            matrix = matrix + str(self.print_symbol) * self.__width
             if i < self.__height - 1:
                 matrix = matrix + '\n'
         return matrix
@@ -72,4 +72,4 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if isinstance(rect_2, Rectangle) is False:
             raise TypeError("rect_2 must be an instance of Rectangle")
-        return rect_1 if rect_1.area() == rect_2.area() else rect_2
+        return rect_1 if rect_1.area() >= rect_2.area() else rect_2
