@@ -1,0 +1,23 @@
+Case 0
+
+=======
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>>
+
+Case 1
+
+=======
+
+    >>> MyList = MyList()
+    >>> MyList.append(1)
+    >>> MyList.append(4)
+    >>> MyList.append(2)
+    >>> MyList.append(3)
+    >>> MyList.append(5)
+    >>> print(MyList)
+    [1, 4, 2, 3, 5]
+    >>> MyList.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(MyList)
+    [1, 4, 2, 3, 5]
