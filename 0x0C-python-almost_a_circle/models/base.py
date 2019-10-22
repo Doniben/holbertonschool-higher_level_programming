@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+import json
 
 
 class Base:
-    """ FIRST CLASS """
+    """ PATERN CLASS """
     __nb_objects = 0
     """ private class attribute """
 
@@ -13,3 +14,10 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         """ assign the new value to the public instance attribute id """
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        if list_dictionaries is None or list_dictionaries == 0:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
