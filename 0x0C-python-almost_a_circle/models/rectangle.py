@@ -71,9 +71,11 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         count_args = 0
         list_args = ["id", "width", "height", "x", "y"]
         for each_arg in args:
             setattr(self, list_args[count_args], each_arg)
             count_args += 1
+        for key, value in kwargs.items():
+            setattr(self, key, value)
