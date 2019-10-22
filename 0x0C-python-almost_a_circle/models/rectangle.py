@@ -59,3 +59,10 @@ class Rectangle(Base):
         """ Calculates the rectangles area """
 
         return self.width * self.height
+
+    def display(self):
+        """Printing the instance to stdout with #"""
+        print("\n" * self.y, end="")
+        for i in range(self.height):
+                print(" " * self.x, end="")
+                print("#" * self.width)
