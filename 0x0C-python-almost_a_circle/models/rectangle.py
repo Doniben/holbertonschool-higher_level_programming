@@ -70,3 +70,10 @@ class Rectangle(Base):
     def __str__(self):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        count_args = 0
+        list_args = ["id", "width", "height", "x", "y"]
+        for each_arg in args:
+            setattr(self, list_args[count_args], each_arg)
+            count_args += 1
