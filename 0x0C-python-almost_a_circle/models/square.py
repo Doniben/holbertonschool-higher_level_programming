@@ -30,7 +30,7 @@ class Square(Rectangle):
         count_args = 0
         list_args = ["id", "size", "x", "y"]
         for each_arg in args:
-            setattr(self, list_args[count_args], arg)
+            setattr(self, list_args[count_args], each_arg)
             count_args += 1
         for key, value in kwargs.items():
             if key == "size":
