@@ -38,3 +38,7 @@ class Square(Rectangle):
                 self.height = value
             else:
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        square_dictionary = dict(id=self.id, size=self.size, x=self.x, y=self.y)
+        return square_dictionary
