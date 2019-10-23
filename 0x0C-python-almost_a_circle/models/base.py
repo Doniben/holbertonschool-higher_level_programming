@@ -51,3 +51,16 @@ class Base:
 
         n_list = json.loads(json_string)
         return n_list
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with all attributes already set """
+
+        if cls.__name__ == "Rectangle":
+            new_ins = cls(10, 5)
+        elif cls.__name__ == "Square":
+            new_ins = cls(10)
+
+        new_ins.update(**dictionary)
+
+        return new_ins
