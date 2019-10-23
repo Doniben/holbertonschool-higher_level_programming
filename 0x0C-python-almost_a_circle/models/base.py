@@ -27,14 +27,14 @@ class Base:
         """ Returning json representation of the dictionaries list """
         file_name = cls.__name__ + ".json"
         n_list = []
-        with open(filename, "w") as f:
-        if list_objs is None:
-            f.write(n_list)
+        with open(file_name, "w") as f:
+            if list_objs is None:
+                f.write(n_list)
 
-        for i in list_objs:
-            n_list.append(i.to_dictionry())
+            for i in list_objs:
+                n_list.append(i.to_dictionary())
 
-        str_json = ""
-        str_json = cls.to_json_string(n_list)
+            str_json = ""
+            str_json = cls.to_json_string(n_list)
 
-        f.write(str_json)
+            f.write(str_json)
