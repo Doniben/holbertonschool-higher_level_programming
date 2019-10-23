@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ import json module """
 import json
+import os
+import csv
 
 
 class Base:
@@ -64,3 +66,53 @@ class Base:
         new_ins.update(**dictionary)
 
         return new_ins
+
+    @classmethod
+    def load_from_file(cls):
+        '''return a list of instances'''
+
+        if not os.path.isfile(cls.__name__ + '.json'):
+            return []
+        else:
+            with open(cls.__name__ + '.json') as _file:
+                to_json = _file.read()
+            dict_list = Base.from_json_string(to_json)
+            obj_list = list()
+            for sutanito in dict_list:
+                obj_list.append(cls.create(**sutanito))
+            return obj_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''save in CSV file'''
+
+        if cls.__name__ == 'Rectangle':
+            _file = 'Rectangle.csv'
+            headers = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == 'Square':
+            _file = 'Square.csv'
+            headers = ['id', 'size', 'x', 'y']
+        with open(_file, 'w') as fil:
+            csv_writer = csv.DictWriter(fil, fieldnames=headers)
+            csv_writer.writeheader()
+            for row in list_objs:
+                dict_row = row.to_dictionary()
+                csv_writer.writerow(dict_row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''deserializes from csv'''
+
+        if cls.__name__ == 'Rectangle':
+            _file = 'Rectangle.csv'
+        elif cls.__name__ == 'Square':
+            _file = 'Square.csv'
+        list_csv = []
+        dict_csv = {}
+        with open(_file) as f:
+            dic_reader = csv.DictReader(f)
+            for row in dic_reader:
+                for key, value in row.items():
+                    dict_csv[key] = int(value)
+                list_csv.append(cls.create(**dict_csv))
+            return list_csv
