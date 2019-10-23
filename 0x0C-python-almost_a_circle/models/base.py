@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" import json module """
 import json
 
 
@@ -8,15 +9,16 @@ class Base:
     """ private class attribute """
 
     def __init__(self, id=None):
+        """ assign the new value to the public instance attribute id """
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-        """ assign the new value to the public instance attribute id """
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ static method to send list dictionaries to the json string """
         if list_dictionaries is None or list_dictionaries == 0:
             return "[]"
         else:
