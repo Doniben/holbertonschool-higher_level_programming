@@ -40,3 +40,14 @@ class Base:
             str_json = cls.to_json_string(n_list)
 
             f.write(str_json)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ JSON string to dictionary """
+        n_list = []
+
+        if not json_str or json_str is None:
+            return n_list
+
+        n_list = json.loads(json_str)
+        return n_list
