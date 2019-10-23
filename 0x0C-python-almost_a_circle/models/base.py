@@ -46,8 +46,8 @@ class Base:
         """ JSON string to dictionary """
         n_list = []
 
-        if not json_str or json_str is None:
+        if not json_string or json_string is None:
             return n_list
 
-        n_list = json.loads(json_str)
+        n_list = json.loads(json_string)
         return n_list
