@@ -3,6 +3,8 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 
+# Factory function that constructs a base class for declarative class
+# definitions.
 Base = declarative_base()
 
 
