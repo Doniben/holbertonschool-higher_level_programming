@@ -12,13 +12,14 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2],
                                    sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    # generates new Session objects when called
     Session = sessionmaker(bind=engine)
     mySession = Session()
 
     query = mySession.query(State)
-
-    for elem in query:
-        if 'a' in elem.name:
-            mySession.delete(elem)
+    # Deleting State objects with name containing the letter a
+    for element in query:
+        if 'a' in element.name:
+            mySession.delete(element)
 
     mySession.commit()
