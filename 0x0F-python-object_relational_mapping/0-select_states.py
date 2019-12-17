@@ -4,7 +4,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Initializes method connect to the database
+    # Initializes method to connect to the database
     db = MySQLdb.connect(host="localhost",
                          port=3306,
                          user=sys.argv[1],
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     cursor.execute(query)
     # Store the column of the tables
     tables = cursor.fetchall()
-    # Print the column of the tables
+    # Printing the column of the tables
     for column in tables:
         print(column)
 
