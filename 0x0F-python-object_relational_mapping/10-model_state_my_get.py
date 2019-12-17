@@ -12,16 +12,17 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2],
                                    sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    # generates new Session objects when called
     Session = sessionmaker(bind=engine)
     mySession = Session()
     myquer = mySession.query(State).order_by(State.id)
 
     count = 0
-
-    for elem in myquer:
-        if sys.argv[4] == elem.name:
+    # state name to search (SQL injection free)
+    for element in myquer:
+        if sys.argv[4] == element.name:
             count = 1
-            print("{}".format(elem.id))
+            print("{}".format(element.id))
 
     if count == 0:
         print("Not found")
