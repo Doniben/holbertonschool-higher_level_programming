@@ -10,5 +10,5 @@ if __name__ == "__main__":
     try:
         arg = requests.get(sys.argv[1])
         print(arg.text)
-    except HTTPError as err
+    except HTTPError as err:
         print("Error code: {}".format(err))
