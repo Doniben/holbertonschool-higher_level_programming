@@ -6,7 +6,7 @@ const url = process.argv[2];
 request.get(url, (error, response, body) => {
   if (error) {
     return console.log(error);
-  }
+  } else {
   let count1 = 0;
   const results = JSON.parse(body).results;
   const count = JSON.parse(body).count;
@@ -16,4 +16,5 @@ request.get(url, (error, response, body) => {
     }
   }
   console.log(count1);
+  }
 });
