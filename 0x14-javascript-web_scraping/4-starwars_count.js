@@ -11,7 +11,7 @@ request.get(url, (error, response, body) => {
   const results = JSON.parse(body).results;
   const count = JSON.parse(body).count;
   for (let i = 0; i < count; i++) {
-    if (results[i].characters.includes('https://swapi.co/api/people/18/')) {
+    if (results[i].characters.includes('https://swapi.co/api/people/18')) {
       count1++;
     }
   }
