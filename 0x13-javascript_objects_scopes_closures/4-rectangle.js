@@ -12,16 +12,17 @@ class Rectangle {
   }
 
   print () {
-    while (this.height) {
+    let a = this.height;
+    while (a) {
       console.log('X'.repeat(this.width));
-      this.height--;
+      a--;
     }
   }
 
   rotate () {
-    const cambio = this.height;
-    this.height = this.width;
-    this.width = cambio;
+    this.swap = this.width;
+    this.width = this.height;
+    this.height = this.swap;
   }
 
   double () {
